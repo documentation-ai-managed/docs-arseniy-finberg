@@ -1,0 +1,131 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes in Arseniy Finberg.
+---
+
+## Overview
+
+Arseniy Finberg evolves rapidly to help you manage your project documentation effectively. Review this changelog to stay informed about new features, enhancements, bug fixes, and any breaking changes. You receive notifications for major releases via email if subscribed.
+
+<Callout kind="info">
+  Subscribe to the RSS feed at `/changelog.xml` or follow us on GitHub for instant updates on new versions.
+</Callout>
+
+## Recent Updates
+
+<Update label="2024-10-20" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in documentation themes. Set your `{brandColor}` in the config to `#3B82F6` for Arseniy Finberg styling.
+- Introduced `<Columns>` component for responsive grid layouts in MDX pages.
+
+## Improvements
+
+- Enhanced performance of code block rendering by `{20%}` for large documentation sites.
+- Better accessibility with ARIA labels on all interactive components like `<Tabs>` and `<Steps>`.
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks using 4 backticks.
+- Resolved issues with special character escaping in prose (`<`, `>`, `{`, `}`).
+
+</Update>
+
+<Update label="2024-09-15" description="v1.1.0" tags={["bugfix", "security"]}>
+
+## New Features
+
+- Integrated `<ParamField>` and `<ResponseField>` components for API documentation.
+- Added webhook support for real-time update notifications to `https://your-webhook-url.com/webhook`.
+
+## Bug Fixes
+
+- Patched security vulnerability in YAML frontmatter parsing.
+- Corrected heading hierarchy enforcement to always start with H2 after frontmatter.
+
+## Improvements
+
+- Optimized Mermaid diagram rendering without requiring a `<Mermaid>` component.
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// New webhook handler example
+const handleWebhook = async (event) => {
+  if (event.type === 'update') {
+    console.log('New version:', event.version);
+  }
+};
+```
+
+```python
+# New webhook handler example
+import json
+
+def handle_webhook(event):
+    if event['type'] == 'update':
+        print(f"New version: {event['version']}")
+```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-01" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Launched core MDX components: `<Callout>`, `<Card>`, `<Steps>`, and `<Tabs>`.
+- Full support for YAML frontmatter with `title` and `description`.
+
+## Breaking Changes
+
+- Removed legacy H1 headings; all pages now require H2 as the first body heading.
+
+## Migration Notes
+
+Follow these steps to update your documentation:
+
+<Steps>
+  <Step title="Update Frontmatter" icon="edit-3">
+
+    Ensure no blank lines inside:
+
+````yaml
+---
+title: Your Page
+description: Brief summary
+---
+````
+
+  </Step>
+  <Step title="Replace H1 with H2" icon="heading">
+
+    Change `# Title` to `## Title`.
+
+  </Step>
+  <Step title="Test Parsing" icon="check-circle">
+
+    Validate your MDX files render without `{acorn}` errors.
+
+  </Step>
+</Steps>
+
+</Update>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Get started with Arseniy Finberg in minutes.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your documentation space.
+  </Card>
+  <Card title="Customization" icon="settings" href="/configuration">
+    Tailor themes and components.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Check the [GitHub repository](https://github.com/example/arseniy-finberg) for full release notes and contribute feedback.
+</Callout>
